@@ -1,0 +1,38 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #eee;
+}
+
+#main #content {
+    max-width: 1000px;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 10px;
+    margin: 40px auto;
+    /* I color picked this from the chisel handle, I think it's a good palette
+       base color, but I'm not sure where to use it. Do whatever you want :P
+    background-color: #E99149; */
+    background-color: transparent;
+}
+
+.build {
+    cursor: pointer;
+}
+
+.build:hover {
+    background: #ddd;
+}
+
+/* These can, and probably should, change */
+.build.release {
+    background: #aaffaa;
+}
+
+.build.development {
+    background: #ffddaa;
+}
+
+/* <center> tags are SO last decade */
+.center {
+    text-align: center;
+}
