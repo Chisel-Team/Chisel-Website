@@ -19,15 +19,18 @@
                 Chisel Builds
             </h1>
 
-            {% for build in builds %}
-                <div class="build {{ build.type|lower }}" id="{{ build.number }}">
-                    {{ build.version }}
-                    {{ build.type    }}
-                    <div class="changelog" style="display: none;">
-                        {{ build.changelog }}
+            <h3 class="center"> {{ branch }} </h3>
+            <div id="builds">
+                {% for build in builds %}
+                    <div class="build {{ build.type|lower }}" id="{{ build.number }}">
+                        {{ build.version }}
+                        {{ build.type    }}
+                        <div class="changelog" style="display: none;">
+                            {{ build.changelog }}
+                        </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 </body>
