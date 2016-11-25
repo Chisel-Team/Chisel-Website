@@ -15,23 +15,6 @@ body {
     background-color: transparent;
 }
 
-.build {
-    cursor: pointer;
-}
-
-.build:hover {
-    background: #ddd;
-}
-
-/* These can, and probably should, change */
-.build.release {
-    background: #aaffaa;
-}
-
-.build.development {
-    background: #ffddaa;
-}
-
 /* <center> tags are SO last decade */
 .center {
     text-align: center;

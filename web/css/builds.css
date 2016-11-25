@@ -1,0 +1,16 @@
+.build {
+    cursor: pointer;
+}
+
+.build:hover {
+    background: #ddd;
+}
+
+/* These can, and probably should, change */
+.build.release {
+    background: #aaffaa;
+}
+
+.build.development {
+    background: #ffddaa;
+}

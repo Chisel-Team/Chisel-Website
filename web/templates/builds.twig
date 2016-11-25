@@ -1,7 +1,7 @@
-<html>
-<head>
-    <link rel="stylesheet" href="css/index.css"/>
-    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+{% extends "base.twig" %}
+
+{% block head %}
+    <link rel="stylesheet" href="css/builds.css"/>
     <script type="text/javascript">
         $(document).ready(function() {
             $('.build').click(function() {
@@ -10,28 +10,23 @@
             });
         });
     </script>
-</head>
+{% endblock %}
 
-<body>
-    <div id="main">
-        <div id="content">
-            <h1>
-                Chisel Builds
-            </h1>
+{% block content %}
+    <h1>
+        Chisel Builds
+    </h1>
 
-            <h3 class="center"> {{ branch }} </h3>
-            <div id="builds">
-                {% for build in builds %}
-                    <div class="build {{ build.type|lower }}" id="{{ build.number }}">
-                        {{ build.version }}
-                        {{ build.type    }}
-                        <div class="changelog" style="display: none;">
-                            {{ build.changelog }}
-                        </div>
-                    </div>
-                {% endfor %}
+    <h3 class="center"> {{ branch }} </h3>
+    <div id="builds">
+        {% for build in builds %}
+            <div class="build {{ build.type|lower }}" id="{{ build.number }}">
+                {{ build.version }}
+                {{ build.type    }}
+                <div class="changelog" style="display: none;">
+                    {{ build.changelog }}
+                </div>
             </div>
-        </div>
+        {% endfor %}
     </div>
-</body>
-</html>
+{% endblock %}
