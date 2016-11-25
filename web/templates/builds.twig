@@ -1,0 +1,34 @@
+<html>
+<head>
+    <link rel="stylesheet" href="css/index.css"/>
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.build').click(function() {
+                var selector = '#' + $(this).attr('id') + ' .changelog';
+                $(selector).slideToggle();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="main">
+        <div id="content">
+            <h1>
+                Chisel Builds
+            </h1>
+
+            {% for build in builds %}
+                <div class="build {{ build.type|lower }}" id="{{ build.number }}">
+                    {{ build.version }}
+                    {{ build.type    }}
+                    <div class="changelog" style="display: none;">
+                        {{ build.changelog }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
