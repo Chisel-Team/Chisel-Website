@@ -2,7 +2,7 @@
 
     include_once 'includes/twig_loader.php';
 
-    $branch = $_GET['branch'] ?: '1.11/dev';
+    $branch = isset($_GET['branch']) ? $_GET['branch'] : '1.11/dev';
     $proj_url = "http://ci.tterrag.com/job/Chisel/branch/" . str_replace('/', '%252F', $branch);
     $proj_api = $proj_url . "/api/json";
 

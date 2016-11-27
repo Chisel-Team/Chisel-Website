@@ -1,6 +1,7 @@
 body {
     font-family: 'Open Sans', sans-serif;
     background-color: #eee;
+    margin: 0;
 }
 
 #main #content {

@@ -1,0 +1,21 @@
+#navbar {
+    width: 100%;
+    background-color: black;
+    box-shadow: 0 2px 4px 0 grey;
+    display: block;
+    font-size: 0;
+    padding: 0;
+}
+
+.navbutton {
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: white;
+    padding: 0.5rem 0.75rem;
+    display: inline-block;
+    transition: all 0.25s ease;
+}
+
+.navbutton:hover {
+    background: #D76100;
+}

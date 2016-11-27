@@ -24,7 +24,7 @@
                 {{ build.version }}
                 {{ build.type    }}
                 <div class="changelog" style="display: none;">
-                    {{ build.changelog }}
+                    {{ build.changelog|raw }}
                 </div>
             </div>
         {% endfor %}
