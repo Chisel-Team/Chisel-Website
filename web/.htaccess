@@ -1,4 +1,4 @@
-DirectoryIndex index.html index.php home.html home.php
+DirectoryIndex index.html index.php
 AddType application/x-httpd-php .html
 
 # Enable rewriting
