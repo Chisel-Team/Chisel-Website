@@ -2,15 +2,19 @@
     cursor: pointer;
 }
 
-.build:hover {
-    background: #ddd;
-}
-
 /* These can, and probably should, change */
 .build.release {
     background: #aaffaa;
 }
 
+.build.release:hover {
+    background: #99dd99;
+}
+
 .build.development {
     background: #ffddaa;
+}
+
+.build.development:hover {
+    background: #ddbb99;
 }
