@@ -1,7 +1,31 @@
+<script>
+    $(document).ready(function() {
+        $('html').click(function() {
+            $("#builds_list").removeClass('show');
+        });
+
+        $("#btn_builds").click(function(event) {
+            event.stopPropagation();
+            $("#builds_list").toggleClass('show');
+            $(this).toggleClass('selected');
+        });
+
+        $("#builds_list li").click(function() {
+            $("#btn_builds").trigger("click");
+        })
+    });
+</script>
 <div id="navbar">
-    <a class="navbutton" href="."><i class="fa fa-home 2x" aria-hidden="true"></i></a>
-    <a class="navbutton" href="ctm">CTM</a>
-    <a class="navbutton" href="chisel">Chisel</a>
-    <a class="navbutton" href="builds">Builds</a>
-    <a class="navbutton" href="about">About</a>
+    <a class="navbutton" id="btn_home" href="."><i class="fa fa-home 2x" aria-hidden="true"></i></a>
+    <a class="navbutton" id="btn_ctm" href="ctm">CTM</a>
+    <a class="navbutton" id="btn_chisel" href="chisel">Chisel</a>
+    <div class="dropdown" id="builds_dropdown">
+        <a class="navbutton" id="btn_builds" href="#">Builds <i class="fa fa-caret-down" aria-hidden="true"></i></a>
+        <ul id="builds_list">
+            {% for b in branches %}
+                <li><a href="builds?branch={{ b }}">{{ b }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <a class="navbutton" id="btn_about" href="about">About</a>
 </div>

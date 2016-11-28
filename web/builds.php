@@ -33,10 +33,10 @@
             'number' => $number,
             'version' => $version,
             'type' => $type,
-            'changelog' => nl2br($build_params[1]->value)
+            'changelog' => nl2br($build_params[1]->value),
         ];
     }
 
-    $twig->display('builds.twig', array('branch' => $branch, 'builds' => $builds));
+    $loader->show('builds.twig', array('branch' => $branch, 'builds' => $builds, 'branches' => array('1.9/dev', '1.10/dev', '1.11/dev')));
 
 ?>
