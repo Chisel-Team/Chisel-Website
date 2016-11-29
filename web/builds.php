@@ -28,14 +28,14 @@
         // Extract the first group match (the actual version string)
         $version = $match_data[1];
         $type = $build_params[0]->value == 'true' ? 'Release' : 'Development';
-        $changelog_raw = $build_params[1]->value;
+        $changelog_raw = trim($build_params[1]->value);
         $changelog;
-        if ($changelog_raw == 'none') {
+        if ($changelog_raw == 'none' || $changelog_raw == '') {
             $changelog = array_map(function($val) {
                 return $val->msg;
             }, $build_data->changeSet->items);
         } else {
-            $changelog = preg_split("/[\r\n]+/", trim(str_replace('- ', '', $changelog_raw)));
+            $changelog = preg_split("/[\r\n]+/", str_replace('- ', '', $changelog_raw));
         }
 
         $builds[$number] = (object) [
