@@ -23,7 +23,7 @@
             <div class="build {{ build.type|lower }}" id="{{ build.number }}">
                 {{ build.version }}
                 {{ build.type    }}
-                <div class="changelog" style="display: none;">
+                <div class="changelog {{ build.type|lower }}" style="display: none;">
                     <ul>
                         {% for change in build.changelog %}
                             <li>{{ change }}</li>
