@@ -35,7 +35,7 @@
                 return $val->msg;
             }, $build_data->changeSet->items);
         } else {
-            $changelog = explode('\n',  str_replace('- ', '', $changelog_raw));
+            $changelog = preg_split("/[\r\n]+/", trim(str_replace('- ', '', $changelog_raw)));
         }
 
         $builds[$number] = (object) [
