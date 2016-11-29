@@ -1,0 +1,22 @@
+#team-members {
+    width: 100%;
+    display: flex;
+}
+
+#team-members .member {
+    flex-grow: 1;
+    text-align: center;
+    font-weight: bold;
+}
+
+.member-icon {
+    max-width: 150px;
+    border-radius: 80px;
+    background: white;
+    border: 5px solid white;
+    transition: all 0.1s ease;
+}
+
+.member-icon:hover {
+    transform: scale(1.05);
+}
