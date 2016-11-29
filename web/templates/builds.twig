@@ -24,7 +24,11 @@
                 {{ build.version }}
                 {{ build.type    }}
                 <div class="changelog" style="display: none;">
-                    {{ build.changelog|raw }}
+                    <ul>
+                        {% for change in build.changelog %}
+                            <li>{{ change }}</li>
+                        {% endfor %}
+                    </ul>
                 </div>
             </div>
         {% endfor %}
