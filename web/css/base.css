@@ -1,6 +1,10 @@
 body {
-    font-family: 'Open Sans', sans-serif;
-    background-color: #eee;
+    font-family: 'Open Sans', sans-serif, 'DejaVu Sans';
+    background-color: #e6e6e6;
+    margin: 0;
+}
+
+ul, li {
     margin: 0;
 }
 
