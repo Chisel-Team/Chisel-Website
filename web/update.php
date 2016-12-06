@@ -1,5 +1,5 @@
 <?php
-    include_once('classes/BuildList.php');
+    include_once(__DIR__ . '/classes/BuildList.php');
 
     // This file exports plain .json for use in forge's update handler
 
