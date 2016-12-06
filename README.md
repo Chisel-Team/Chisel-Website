@@ -10,6 +10,6 @@ This site currently uses Javascript (jQuery) for frontend scripting, and PHP for
 
 Dependency management is handled by [Composer](https://getcomposer.org/). Install this before continuing. Once installed (or if you already have it) simply run `composer install` from the project directory to download dependencies.
 
-To test this site locally, you need a PHP server on your computer. I reocmmend [WAMPserver](http://www.wampserver.com/en/) (Windows only) or [MAMP](https://www.mamp.info/en/) (MacOS only).
+To test this site locally, you need a PHP server on your computer. I recommend [WAMPserver](http://www.wampserver.com/en/) (Windows only) or [MAMP](https://www.mamp.info/en/) (MacOS only).
 
 Install and run your local server of choice, then clone (or symlink, etc) the git repo into the server's document root. Then just load it up in your browser (usually as localhost/[folder]).
