@@ -15,8 +15,18 @@
     background: white;
     border: 5px solid white;
     transition: all 0.1s ease;
+    cursor: pointer;
 }
 
 .member-icon:hover {
     transform: scale(1.05);
+}
+
+.bio {
+    display: none;
+    background: #fff;
+    margin: 20px;
+    padding: 1em;
+    border-radius: 3px;
+    box-shadow: 2px 2px 4px grey;
 }

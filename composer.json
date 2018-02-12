@@ -2,8 +2,11 @@
     "config": {
         "vendor-dir": "web/vendor"
     },
-    
+
     "require": {
-        "twig/twig": "~1.0"
+        "j7mbo/twitter-api-php": "dev-master",
+        "slim/slim": "^3.0",
+        "twig/twig": "^2.0",
+        "slim/twig-view": "^2.2"
     }
 }

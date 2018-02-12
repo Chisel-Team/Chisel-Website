@@ -12,6 +12,18 @@
     foreach ($builds->getVersions() as $version) {
         $promos["$version-latest"]      = $builds->getLatest($version);
         $promos["$version-recommended"] = $builds->getRecommended($version);
+        foreach ($builds->getAllBuilds($version) as $buildurl) {
+            $build_data = json_decode(file_get_contents("$buildurl/api/json"));
+            $artifact_name = $build_data->artifacts[0]->fileName;
+            preg_match("/(MC(\.?[0-9]+)+-)?(\.?[0-9]+)+/", $artifact_name, $matches);
+            $fullversion = $matches[0];
+            preg_match("/(?:MC((?:\.?[0-9]+)+)-)/", $artifact_name, $matches);
+            $mcversion = $matches[1];
+
+            $output[$mcversion][$fullversion] = join("\n", array_map(function($val) {
+                return $val->msg;
+            }, $build_data->changeSet->items));
+        }
     }
 
     $output['promos'] = $promos;

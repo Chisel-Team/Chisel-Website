@@ -14,6 +14,7 @@ class BuildList {
     public function getVersions() {
         $versions = array();
         $branches = $this->getBranches();
+        var_dump($branches);
 
         foreach ($branches as $branch) {
             preg_match("/([0-9]+\.?)+/", $branch, $matches);
@@ -24,6 +25,22 @@ class BuildList {
         }
 
         return $versions;
+    }
+
+    public function getAllBuilds($version) {
+        $branches = $this->getBranches();
+        $builds = array();
+        foreach ($branches as $branch) {
+            if (strpos($branch, $version) !== false) {
+                $proj_api = "http://ci.tterrag.com/job/Chisel/branch/" . str_replace('/', '%252F', $branch) . "/api/json";
+                $proj_data = json_decode(file_get_contents($proj_api));
+
+                $builds = array_merge($builds, array_map(function($v) {
+                    return $v->url;
+                }, $proj_data->builds));
+            }
+        }
+        return $builds;
     }
 
     public function getLatest($version, $release = false) {
@@ -47,7 +64,7 @@ class BuildList {
     }
 
     public function getLatestBuild($branch) {
-        $proj_api = "http://ci.tterrag.com/job/Chisel/branch/" . str_replace('/', '%252F', $branch) . "/api/json";
+        $proj_api = "http://ci.tterrag.com/job/Chisel/job/" . str_replace('/', '%252F', $branch) . "/api/json";
         $proj_data = json_decode(file_get_contents($proj_api));
 
         $build_api = $proj_data->lastSuccessfulBuild->url . "/api/json";
@@ -60,7 +77,7 @@ class BuildList {
     }
 
     public function getReleaseBuild($branch) {
-        $proj_api = "http://ci.tterrag.com/job/Chisel/branch/" . str_replace('/', '%252F', $branch) . "/api/json";
+        $proj_api = "http://ci.tterrag.com/job/Chisel/job/" . str_replace('/', '%252F', $branch) . "/api/json";
         $proj_data = json_decode(file_get_contents($proj_api));
 
         foreach ($proj_data->builds as $build) {

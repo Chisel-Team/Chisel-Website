@@ -1,0 +1,39 @@
+{% extends 'base.twig' %}
+
+{% block head %}
+    <link rel="stylesheet" href="css/about.css"/>
+    <script>
+        $(function() {
+            $(".member-icon").click(function() {
+                var obj = $("#bio-" + $(this).attr("id"));
+                var state = obj.css("display");
+                $(".bio").hide();
+                if (state == "none") {
+                    obj.show();
+                } else {
+                    obj.hide();
+                }
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <h1>Chisel Team</h1>
+    <div id="team-members">
+        {% for member in team %}
+            <div class="member">
+                <img class="member-icon" id="{{ member.name }}" src="{{ member.img }}"/>
+                <br>
+                {{ member.name }}
+            </div>
+        {% endfor %}
+    </div>
+    <div id="team-bio">
+        {% for member in team %}
+            <div class="bio" id="bio-{{ member.name }}">
+                {{ member.bio }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
